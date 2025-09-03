@@ -1,0 +1,56 @@
+# Git
+.git
+.gitignore
+.github
+
+# Documentation
+README.md
+*.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Test files
+*_test.go
+testdata/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Build artifacts
+/bin/
+/dist/
+/build/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Coverage reports
+coverage.out
+coverage.html
+
+# Air live reload
+tmp/
