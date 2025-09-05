@@ -3,7 +3,6 @@ package config
 import (
 	"errors"
 	"fmt"
-	"os"
 	"time"
 
 	"github.com/redis/go-redis/v9"
@@ -17,7 +16,7 @@ type RedisConfig struct {
 }
 
 func LoadRedisConfig() (*redis.Options, error) {
-	redisURL := os.Getenv("REDIS_URI")
+	redisURL := Config.RedisUri
 	if redisURL == "" {
 		return nil, errors.New("REDIS_URL environment variable not set")
 	}

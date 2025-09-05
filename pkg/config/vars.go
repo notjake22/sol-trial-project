@@ -1,7 +1,11 @@
 package config
 
 type Structure struct {
-	RpcUri string
+	Port        string
+	RpcUri      string
+	MongoDbName string
+	MongoUri    string
+	RedisUri    string
 }
 
 var (

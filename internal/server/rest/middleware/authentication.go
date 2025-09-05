@@ -9,9 +9,6 @@ import (
 )
 
 func Authenticate(c *gin.Context) {
-	// add in api key authentication here later
-
-	// get x-api-key from header and validate from mongo license service
 	apiKey := c.GetHeader("x-api-key")
 	if apiKey == "" {
 		if err := c.AbortWithError(401, gin.Error{
@@ -23,16 +20,17 @@ func Authenticate(c *gin.Context) {
 		}
 		return
 	}
-	
+
 	_, err := service.ValidateLicense(apiKey)
 	if err != nil {
-		if err = c.AbortWithError(401, gin.Error{
+		if abortErr := c.AbortWithError(401, gin.Error{
 			Err:  err,
 			Type: gin.ErrorTypePublic,
 			Meta: "Invalid API key",
-		}); err != nil {
-			log.Println("Error aborting request: " + err.Error())
+		}); abortErr != nil {
+			log.Println("Error aborting request: " + abortErr.Error())
 		}
+		return
 	}
 
 	go func() {

@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
+	config.Load()
 	redis.InitRedis()
 	mongo.Init()
-	config.Load()
 
 	err := server.Start(os.Getenv("PORT"))
 	if err != nil {

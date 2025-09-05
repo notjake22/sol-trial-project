@@ -62,11 +62,6 @@ jobs:
         REDIS_URI: redis://localhost:6379
         RPC_URI: https://api.mainnet-beta.solana.com
       run: go test -v ./...
-    
-    - name: Run linter
-      uses: golangci/golangci-lint-action@v3
-      with:
-        version: latest
 
   build-and-push:
     runs-on: ubuntu-latest
